@@ -14,6 +14,11 @@
 		78965AD82A4624EF002C6651 /* ws_chat_clientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78965AD72A4624EF002C6651 /* ws_chat_clientTests.swift */; };
 		78965AE22A4624EF002C6651 /* ws_chat_clientUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78965AE12A4624EF002C6651 /* ws_chat_clientUITests.swift */; };
 		78965AE42A4624EF002C6651 /* ws_chat_clientUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78965AE32A4624EF002C6651 /* ws_chat_clientUITestsLaunchTests.swift */; };
+		78965AF12A46255B002C6651 /* WebSocketManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78965AF02A46255B002C6651 /* WebSocketManager.swift */; };
+		78965AF42A466C8A002C6651 /* MessageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78965AF32A466C8A002C6651 /* MessageModel.swift */; };
+		78965AF62A479D97002C6651 /* SendMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78965AF52A479D97002C6651 /* SendMessageView.swift */; };
+		78965AFA2A47FE2A002C6651 /* MessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78965AF92A47FE2A002C6651 /* MessageView.swift */; };
+		78965AFC2A48FEB1002C6651 /* ConnectionIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78965AFB2A48FEB1002C6651 /* ConnectionIndicator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +49,12 @@
 		78965ADD2A4624EF002C6651 /* ws-chat-clientUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ws-chat-clientUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		78965AE12A4624EF002C6651 /* ws_chat_clientUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ws_chat_clientUITests.swift; sourceTree = "<group>"; };
 		78965AE32A4624EF002C6651 /* ws_chat_clientUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ws_chat_clientUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		78965AF02A46255B002C6651 /* WebSocketManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocketManager.swift; sourceTree = "<group>"; };
+		78965AF22A463972002C6651 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		78965AF32A466C8A002C6651 /* MessageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageModel.swift; sourceTree = "<group>"; };
+		78965AF52A479D97002C6651 /* SendMessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendMessageView.swift; sourceTree = "<group>"; };
+		78965AF92A47FE2A002C6651 /* MessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageView.swift; sourceTree = "<group>"; };
+		78965AFB2A48FEB1002C6651 /* ConnectionIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionIndicator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,10 +105,16 @@
 		78965AC52A4624EE002C6651 /* ws-chat-client */ = {
 			isa = PBXGroup;
 			children = (
+				78965AF22A463972002C6651 /* Info.plist */,
 				78965AC62A4624EE002C6651 /* ws_chat_clientApp.swift */,
 				78965AC82A4624EE002C6651 /* ContentView.swift */,
 				78965ACA2A4624EF002C6651 /* Assets.xcassets */,
 				78965ACC2A4624EF002C6651 /* Preview Content */,
+				78965AF02A46255B002C6651 /* WebSocketManager.swift */,
+				78965AF32A466C8A002C6651 /* MessageModel.swift */,
+				78965AF52A479D97002C6651 /* SendMessageView.swift */,
+				78965AF92A47FE2A002C6651 /* MessageView.swift */,
+				78965AFB2A48FEB1002C6651 /* ConnectionIndicator.swift */,
 			);
 			path = "ws-chat-client";
 			sourceTree = "<group>";
@@ -257,8 +274,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				78965AFC2A48FEB1002C6651 /* ConnectionIndicator.swift in Sources */,
+				78965AFA2A47FE2A002C6651 /* MessageView.swift in Sources */,
+				78965AF62A479D97002C6651 /* SendMessageView.swift in Sources */,
 				78965AC92A4624EE002C6651 /* ContentView.swift in Sources */,
 				78965AC72A4624EE002C6651 /* ws_chat_clientApp.swift in Sources */,
+				78965AF12A46255B002C6651 /* WebSocketManager.swift in Sources */,
+				78965AF42A466C8A002C6651 /* MessageModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -420,6 +442,7 @@
 				DEVELOPMENT_TEAM = 4QGR522B9M;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "ws-chat-client/Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -449,6 +472,7 @@
 				DEVELOPMENT_TEAM = 4QGR522B9M;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "ws-chat-client/Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

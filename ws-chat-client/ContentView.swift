@@ -6,21 +6,71 @@
 //
 
 import SwiftUI
+import Combine
 
 struct ContentView: View {
+    var subscriptions = Set<AnyCancellable>()
+    @State var messages = [MessageModel]()
+    @EnvironmentObject var webSocketManager: WebSocketManager
+        
+    init() {
+       UITableView.appearance().separatorStyle = .none
+       UITableView.appearance().tableFooterView = UIView()
+    }
+
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+            Text("WS Shenanigans")
+            
+            HStack {
+                Button("Connect") {
+                    do {
+                        try webSocketManager.establishConnection()
+                    } catch {
+                        print("Error: \(error)")
+                    }
+                
+                }
+                
+                ConnectionIndicator()
+                
+                Button("Disconnect") {
+                    webSocketManager.disconnect()
+                }
+            }
+            
+            
+
+            
+            List($messages, id: \.id) { message in
+                MessageView(message: message)
+                    .scaleEffect(x: 1, y: -1, anchor: .center)
+                    .listRowBackground(Color.clear)
+                    .listRowSeparator(.hidden)
+            }.scaleEffect(x: 1, y: -1, anchor: .center)
+            
+            Spacer()
+            
+            SendMessageView()
         }
-        .padding()
+        .onReceive(webSocketManager.$message, perform: { value in
+            if let value = value {
+                let foundMessage = messages.first { message in
+                    message.id == value.id
+                }
+                
+                if foundMessage == nil {
+                    messages.insert(value, at: 0)
+                }
+            }
+        })
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        let webSocketMaaager = WebSocketManager(connectionString: "ws://localhost:8080/ws")
+        return ContentView()
+            .environmentObject(webSocketMaaager)
     }
 }
